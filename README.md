@@ -1,111 +1,159 @@
-# CRUD App — Full-Stack Social Platform
+<!--
+  CRUD API README refresh.
+  Documentation-only change: README.md is the only file being updated.
+-->
 
-A full-stack social media application built with **FastAPI and React**, designed to provide a foundation for a modern social networking platform.
+<div align="center">
 
-The project focuses on backend API development, authentication, database management, media handling, messaging, notifications, search, caching, background tasks, and a responsive web frontend.
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=38BDF8&center=true&vCenter=true&width=900&lines=CRUD+App;A+FastAPI-powered+social+platform;Build.+Connect.+Share." alt="Animated CRUD App heading" />
 
-## 🚀 Live Demo
+  <p><strong>A full-stack social application built with FastAPI and React.</strong></p>
+  <p>Profiles · Posts · Social interactions · Messaging · Notifications</p>
 
-* **Backend API:** https://crud-api-0b8d.onrender.com
-* **Frontend:** https://crud-api-1-s7wp.onrender.com
-* API Documentation:
-https://crud-api-0b8d.onrender.com/docs
+  <p>
+    <a href="https://crud-api-1-s7wp.onrender.com"><img src="https://img.shields.io/badge/Frontend-Live%20Demo-0EA5E9?style=for-the-badge&logo=render&logoColor=white" alt="Live frontend" /></a>
+    <a href="https://crud-api-0b8d.onrender.com"><img src="https://img.shields.io/badge/Backend-Live%20API-16A34A?style=for-the-badge&logo=fastapi&logoColor=white" alt="Live backend" /></a>
+    <a href="https://crud-api-0b8d.onrender.com/docs"><img src="https://img.shields.io/badge/API-Swagger%20Docs-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="API documentation" /></a>
+  </p>
 
-> The current production deployment runs the core web application on Render. Some infrastructure and experimental components in the repository are intended for future development and are not part of the current production deployment.
+  <p>
+    <img src="https://img.shields.io/badge/Python-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat-square" alt="SQLAlchemy" />
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" />
+    <img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white" alt="Celery" />
+    <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  </p>
 
-## ✨ Features
+  <p><em>From API fundamentals to the building blocks of a social product.</em></p>
 
-### Backend
+</div>
 
-* FastAPI REST API
-* PostgreSQL database
-* SQLAlchemy ORM
-* Alembic database migrations
-* OAuth2 / JWT authentication
-* User accounts and permissions
-* Posts, comments, votes and bookmarks
-* Followers and social relationships
-* Stories
-* Direct messaging
-* Notifications
-* Media uploads with Cloudinary
-* Redis caching and Pub/Sub
-* Celery background tasks and scheduled jobs
-* Elasticsearch search and indexing
-* WebSocket infrastructure
-* Nginx configuration
-* Docker and Docker Compose support
+---
+
+## 🌐 Live application
+
+| Component | Link |
+| --- | --- |
+| React frontend | [crud-api-1-s7wp.onrender.com](https://crud-api-1-s7wp.onrender.com) |
+| FastAPI backend | [crud-api-0b8d.onrender.com](https://crud-api-0b8d.onrender.com) |
+| Interactive API documentation | [Swagger UI](https://crud-api-0b8d.onrender.com/docs) |
+
+> The project is deployed on Render. Availability and response times may depend on the hosting plan and service state.
+
+## ✨ Overview
+
+**CRUD App** is a full-stack social-media-style application built with a Python **FastAPI** backend and a **React + TypeScript** frontend.
+
+The project goes beyond basic create, read, update and delete operations. Its documented feature set covers user accounts, social relationships, posts and interactions, stories, direct messaging, notifications, media uploads, caching, background processing and search infrastructure.
+
+It is also a practical backend engineering project: it brings together API development, relational data modelling, authentication, database migrations, asynchronous tasks and integrations with supporting services.
+
+## 🚀 Features
+
+### Backend and API
+
+- FastAPI application with interactive OpenAPI documentation.
+- OAuth2/JWT authentication.
+- User accounts and permission-related functionality.
+- Posts, comments, votes and bookmarks.
+- Followers and social relationships.
+- Stories.
+- Direct messaging and notification components.
+- Media upload integration with Cloudinary.
+- SQLAlchemy ORM and PostgreSQL.
+- Alembic database migrations.
+
+### Supporting infrastructure
+
+- Redis caching and Pub/Sub components.
+- Celery background tasks and Celery Beat scheduling.
+- Elasticsearch search and indexing components.
+- WebSocket-related infrastructure.
+- Nginx configuration.
+- Docker and Docker Compose support.
 
 ### Frontend
 
-* React + TypeScript
-* Vite
-* Responsive social-media interface
-* Authentication
-* User profiles
-* Posts and interactions
-* likes, 
-* Stories
-* Messaging
-* Notifications
-* Media handling
+- React with TypeScript and Vite.
+- Responsive social application interface.
+- Authentication and user profiles.
+- Posts and social interactions.
+- Stories, messaging and notifications.
+- Media-related interface components.
 
-  
-## 🏗️ Architecture
+> **Implementation status:** The repository contains application code and infrastructure components at different stages. The currently deployed application should be treated separately from experimental or planned components. In particular, livestreaming is not currently deployed or production-ready.
 
-```text
-React + TypeScript
-        │
-        ▼
-     FastAPI
-        │
- ┌──────┼───────────────┐
- ▼      ▼               ▼
-PostgreSQL Redis     Elasticsearch
-        │
-        ▼
-     Celery
-        │
-        ▼
-   Background Tasks
+## 🧭 Architecture
 
-Media ───────────────► Cloudinary
+The high-level architecture documented for the project is:
+
+```mermaid
+flowchart TB
+    USER[User]
+    WEB[React + TypeScript frontend]
+    API[FastAPI application]
+    DB[(PostgreSQL)]
+    CACHE[(Redis)]
+    WORKER[Celery workers]
+    SEARCH[Elasticsearch]
+    MEDIA[Cloudinary]
+
+    USER --> WEB
+    WEB <-->|HTTP API| API
+    API --> DB
+    API --> CACHE
+    CACHE --> WORKER
+    WORKER --> DB
+    API --> SEARCH
+    API --> MEDIA
 ```
 
-## 🛠️ Technology Stack
+This diagram represents the project's documented technology components and intended integration areas. It is a conceptual overview, not a guarantee that every component is active in the current Render deployment.
 
-**Backend:** Python, FastAPI, SQLAlchemy, Alembic
-**Database:** PostgreSQL
-**Frontend:** React, TypeScript, Vite
-**Caching / Messaging:** Redis, Redis Pub/Sub
-**Background Processing:** Celery, Celery Beat
-**Search:** Elasticsearch
-**Media:** Cloudinary
-**Infrastructure:** Docker, Docker Compose, Nginx
-**Deployment:** Render
-**API Testing:** cURL, Postman, pytest
+## 🧰 Technology stack
 
-## 📁 Project Structure
+| Layer | Technology | Purpose |
+| --- | --- | --- |
+| Language | Python | Backend application |
+| API framework | FastAPI | HTTP API and OpenAPI documentation |
+| ORM | SQLAlchemy | Relational data access |
+| Migrations | Alembic | Database schema migrations |
+| Database | PostgreSQL | Persistent application data |
+| Authentication | OAuth2 / JWT | API authentication |
+| Cache and messaging | Redis, Redis Pub/Sub | Caching and message distribution components |
+| Background jobs | Celery, Celery Beat | Asynchronous and scheduled task components |
+| Search | Elasticsearch | Search and indexing components |
+| Media | Cloudinary | Media storage integration |
+| Frontend | React, TypeScript, Vite | Web application |
+| WebSocket | WebSocket infrastructure | Real-time feature foundation |
+| Reverse proxy | Nginx | Web server / proxy configuration |
+| Containers | Docker, Docker Compose | Containerization support |
+| Hosting | Render | Current web deployment |
+
+## 🗂️ Repository structure
+
+The following is a condensed view based on the repository's documented structure:
 
 ```text
 CRUD_cleaned/
-├── alembic/
+├── alembic/                 # Database migrations
 ├── app/
-│   ├── routers/
-│   ├── tasks/
-│   ├── uploads/
-│   ├── models.py
-│   ├── schemas.py
-│   ├── database.py
-│   ├── main.py
-│   ├── celery_app.py
-│   ├── redis_cache.py
-│   ├── elastic.py
-│   ├── livestream.py
-│   └── ...
-├── nginx/
-├── react/
-├── tests/
+│   ├── routers/             # API route modules
+│   ├── tasks/               # Background task modules
+│   ├── uploads/             # Upload-related components
+│   ├── models.py            # SQLAlchemy models
+│   ├── schemas.py           # API schemas
+│   ├── database.py          # Database configuration
+│   ├── main.py              # FastAPI application entry point
+│   ├── celery_app.py        # Celery configuration
+│   ├── redis_cache.py       # Redis cache components
+│   ├── elastic.py           # Elasticsearch integration
+│   └── livestream.py        # Early livestreaming implementation
+├── nginx/                   # Nginx configuration
+├── react/                   # React frontend
+├── tests/                   # Backend tests
 ├── Dockerfile
 ├── docker-compose.yml
 ├── render.yaml
@@ -113,61 +161,167 @@ CRUD_cleaned/
 └── start.sh
 ```
 
+## 🛠️ Local development
+
+The repository includes a backend, frontend and supporting infrastructure. The steps below provide a starting point; check the current configuration files and environment variables for the exact values required by your checkout.
+
+### Prerequisites
+
+- Python
+- Node.js and npm
+- PostgreSQL
+- Git
+
+Redis, Elasticsearch and other supporting services are required only when running the features that depend on them.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/dieudonne670/crud-api.git
+cd crud-api
+```
+
+### 2. Create a Python virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Install backend dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Configure the database connection, authentication secrets and any external service credentials required by the features you intend to run.
+
+Use a local environment file if supported by the project. Never commit real passwords, API keys, tokens or production credentials.
+
+### 5. Run database migrations
+
+The project uses Alembic. Review the migration configuration and database URL, then apply migrations:
+
+```bash
+alembic upgrade head
+```
+
+### 6. Start the FastAPI backend
+
+The application entry point documented by the repository is `app.main`:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Open the interactive API documentation at:
+
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+### 7. Start the React frontend
+
+Open a separate terminal and enter the frontend directory:
+
+```bash
+cd react
+npm install
+npm run dev
+```
+
+The Vite development server will print its local URL in the terminal.
+
 ## 🧪 Testing
 
-The API has been tested using multiple approaches, including:
+The repository documents the use of:
 
-* **cURL** for direct API testing
-* **Postman** for endpoint and authentication testing
-* **pytest** for automated backend tests
+- **pytest** for automated backend tests.
+- **cURL** for direct HTTP API checks.
+- **Postman** for endpoint and authentication workflows.
+- **FastAPI Swagger UI** for interactive API exploration.
 
-## 🎥 Livestreaming — Current Status
+Run the test suite from the backend project environment:
 
-The repository also contains an **early livestreaming/RTMP implementation**, including livestream-related backend code and Nginx RTMP configuration.
+```bash
+pytest
+```
 
-However, **live streaming is not currently deployed or production-ready**.
+The actual test coverage and available test configuration should be checked in the current `tests/` directory.
 
-The livestream functionality has **not yet been connected to OBS in the production environment**, and there is currently no live RTMP/HLS streaming service running on the Render deployment.
+## 🎥 Livestreaming: development status
 
-This is intentional for the current stage of the project because deploying a complete livestreaming infrastructure requires additional server resources and infrastructure beyond the current Render setup.
+The repository contains an early livestreaming/RTMP implementation, including livestream-related backend code and Nginx RTMP configuration.
 
-The livestreaming components remain in the project as a foundation for future development.
+**Livestreaming is not currently deployed or production-ready.** The implementation has not yet been connected to OBS in the production environment, and there is no live RTMP/HLS streaming service running on the current Render deployment.
 
-## 🔮 Future Development
+The components remain a foundation for future exploration. A complete streaming deployment would require additional infrastructure, media-server configuration, capacity planning and operational testing.
 
-The long-term goal is to evolve this project from a CRUD/social-media web application into a **complete production-grade social media platform**.
+## 🔐 Security notes
 
-Planned improvements include:
+For local development and any future production deployment:
 
-* Complete and productionize livestreaming with **OBS + RTMP/HLS**
-* Improve the React frontend and overall UI/UX
-* Build dedicated mobile applications
-* Support **Android and iOS**, with additional cross-platform support where practical
-* Move production infrastructure to **AWS**
-* Improve scalability and infrastructure architecture
-* Introduce stronger monitoring and observability
-* Improve real-time communication features
-* Expand media processing and storage
-* Improve search and recommendation capabilities
-* Strengthen security and performance
-* Add more automated testing and CI/CD
-* Scale the platform toward a larger social-network architecture
+- Keep database passwords, JWT signing secrets and third-party API keys outside source control.
+- Use separate development and production credentials.
+- Validate and authorize access to user-owned resources on the backend.
+- Apply appropriate upload validation and storage access controls.
+- Configure CORS for the intended frontend origins rather than allowing every origin in production.
+- Use HTTPS for deployed API and frontend traffic.
+- Apply rate limits and sensible request-size limits to public endpoints.
+- Keep dependencies updated and review security advisories.
+- Protect logs from accidentally recording tokens, passwords or sensitive personal data.
 
-The long-term vision is to turn this project into a **complete social media ecosystem** where users can create and interact with content, communicate with each other, share media, follow creators, receive notifications, search content, and eventually participate in live broadcasts across web and mobile platforms.
+These are recommended operational practices, not claims that every control is currently implemented.
 
-## 📌 Project Status
+## 🛣️ Roadmap
 
-**Current:** Full-stack social-media-style web application with a deployed FastAPI backend and React frontend.
+The project's documented longer-term direction includes:
 
-**In development:** Livestreaming, deeper real-time functionality, improved frontend experience, mobile applications, and cloud infrastructure.
+- [ ] Complete and productionize livestreaming with OBS and RTMP/HLS.
+- [ ] Improve frontend usability and overall UI/UX.
+- [ ] Develop dedicated Android and iOS applications.
+- [ ] Move production infrastructure toward AWS.
+- [ ] Improve scalability, monitoring and observability.
+- [ ] Expand real-time communication capabilities.
+- [ ] Improve media processing and storage workflows.
+- [ ] Expand search and recommendation capabilities.
+- [ ] Strengthen security, performance and automated testing.
+- [ ] Introduce and improve CI/CD workflows.
 
-**Future:** AWS-based production infrastructure and a scalable multi-platform social media application.
+The roadmap describes future goals; it should not be interpreted as a list of currently available production features.
+
+## 💡 Engineering areas demonstrated
+
+This project provides practical experience with several backend engineering concerns:
+
+- Designing REST APIs with FastAPI.
+- Modelling relational data with SQLAlchemy and PostgreSQL.
+- Managing schema changes with Alembic.
+- Implementing token-based authentication.
+- Integrating caching and background task infrastructure.
+- Connecting a typed React frontend to a Python API.
+- Organizing a multi-component application.
+- Documenting deployment boundaries and unfinished infrastructure honestly.
 
 ## 👨‍💻 Author
 
-**Dieudonne Kindong**
+**Kindong Dieudonne**  
+Software Engineering graduate · Python Backend Developer
 
-Software Engineering | Backend Development | Python | FastAPI | Django 
+- GitHub: [@dieudonne670](https://github.com/dieudonne670)
+- LinkedIn: [Kindong Dieudonne](https://www.linkedin.com/in/kindong-dieudonne-826ba9328/)
 
-GitHub: `https://github.com/dieudonne670`
+---
 
+<div align="center">
+
+  <p><strong>Thanks for exploring CRUD App!</strong></p>
+  <p><sub>Built with Python, FastAPI and React — exploring the foundations of a connected social application.</sub></p>
+
+</div>
